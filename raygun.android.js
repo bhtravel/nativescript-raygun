@@ -25,4 +25,16 @@ raygun.identify = function(val) {
 
 };
 
+raygun.send = function() {
+  var error = arguments[0];
+  
+  if (arguments.length === 1) {
+    RaygunClient.Send(error);
+  } else if (arguments.length === 2) {
+    RaygunClient.Send(error, arguments[1]);
+  } else if (arguments.length >= 3) {
+    RaygunClient.Send(error, arguments[1], arguments[2]);
+  }
+}
+
 module.exports = raygun;

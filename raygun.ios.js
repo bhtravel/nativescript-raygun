@@ -19,6 +19,18 @@ raygun.identify = function(val) {
   }
 }
 
+raygun.send = function() {
+  var error = arguments[0];
+  
+  if (arguments.length === 1) {
+    this._getReporter().send(error);
+  } else if (arguments.length === 2) {
+    this._getReporter().sendWithTags(error, arguments[1]);
+  } else if (arguments.length >= 3) {
+    this._getReporter().sendWithTagsWithUserCustomData(error, arguments[1], arguments[2]);
+  }
+}
+
 raygun._checkIfRunning = function() {
   if (this._isRunning() === false) {
     throw new Error("The Raygun service is not running");

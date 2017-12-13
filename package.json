@@ -1,5 +1,5 @@
 {
-  "name": "nativescript-raygun",
+  "name": "@bhtravel/nativescript-raygun",
   "version": "1.0.0",
   "description": "A NativeScript plugin for Raygun error reporting.",
   "repository": {
